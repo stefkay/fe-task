@@ -1,0 +1,17 @@
+.w100 {
+  width: 100%;
+}
+
+.w50 {
+  width: 45%;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-buttons{
+  align-items: center;
+  justify-content: flex-end;
+}

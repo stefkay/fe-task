@@ -1,0 +1,45 @@
+<table matSort (matSortChange)="sortData($event)">
+  <tr class="member-list-headers">
+    <th>
+      <mat-checkbox color="primary"></mat-checkbox>
+    </th>
+    <th mat-sort-header="name"><span>Member</span></th>
+    <th mat-sort-header="team"><span>Team</span></th>
+    <th><span>Status/Label</span></th>
+    <th mat-sort-header="createdAt"><span>Created At</span></th>
+    <th><span>Location</span></th>
+  </tr>
+
+  <tr class="member-details" *ngFor="let member of members" [ngClass]="{'selected': isSelected(member)}">
+    <td>
+      <mat-checkbox color="primary"
+                    [checked]="isSelected(member)"
+                    (change)="selectRow($event, member)"
+      ></mat-checkbox>
+    </td>
+
+    <td>
+      <span class="name">
+        <img class="avatar" *ngIf="member.image" src="{{member.image}}" alt="avatar">
+        <mat-icon *ngIf="member.image === ''" class="fallback-avatar">
+          account_circle
+        </mat-icon>
+        <span>{{member.name}}</span>
+      </span>
+    </td>
+
+    <td><span class="team">{{member.team?.name}}</span></td>
+
+    <td>
+      <span class="status">
+        <mat-chip-list>
+          <mat-chip class="{{member.calculatedStatus}}">
+            {{member.calculatedStatus}}
+          </mat-chip>
+        </mat-chip-list>
+      </span>
+    </td>
+    <td><span class="createdAt">{{member.createdAt | date}}</span></td>
+    <td><span class="location">{{member.office?.name}}</span></td>
+  </tr>
+</table>

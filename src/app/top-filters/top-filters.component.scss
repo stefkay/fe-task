@@ -1,0 +1,11 @@
+@import "../../styles/variables";
+
+.spacer{
+  flex: 1 1 auto;
+}
+
+.activeFilter{
+  color: $blue;
+  border-bottom: 2px solid $blue;
+  font-weight: 600;
+}

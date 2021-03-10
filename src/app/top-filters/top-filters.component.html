@@ -1,0 +1,16 @@
+<div>
+  <mat-toolbar>
+    <button class="flat-btn"
+            *ngFor="let filter of filterButtons"
+            [ngClass]="{'activeFilter': activeFilter === filter.name}"
+            (click)="filterMembers(filter.name)"
+    >{{filter.label}}
+      <span>{{getMemberCountPerStatus(filter.name)}}</span>
+    </button>
+
+    <span class="spacer"></span>
+
+    <button mat-flat-button color="warn" [disabled]="selected.length === 0" (click)="deleteMembers(selected)">Delete</button>
+    <button mat-flat-button color="primary" class="ml-10" (click)="openAddMemberForm()">Add Member</button>
+  </mat-toolbar>
+</div>

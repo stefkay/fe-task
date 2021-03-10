@@ -1,0 +1,20 @@
+@import "../styles/variables";
+
+.app-container {
+  background-color: $lightGrey;
+  min-height: 100%;
+}
+
+.main {
+  mat-card {
+    margin: 0 1rem;
+  }
+}
+
+.filter{
+  margin-right: 1.5rem;
+}
+
+.member-filters{
+  margin-left: 1rem;
+}

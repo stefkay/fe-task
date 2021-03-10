@@ -1,0 +1,24 @@
+@import "colors";
+
+.flat-btn{
+  border: none;
+  outline: none;
+  background: none;
+  color: $grey;
+  padding: 10px 0;
+  margin: 0 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  span{
+    font-weight: 600;
+    margin-left: 5px;
+  }
+  &:active,
+  &:focus{
+    color: $blue;
+    border-bottom: 2px solid $blue;
+    font-weight: 600;
+  }
+}

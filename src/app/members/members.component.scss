@@ -1,0 +1,46 @@
+@import "../../styles/variables";
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr th,
+tr td {
+  text-align: left;
+  height: 80px;
+  box-sizing: content-box;
+  padding-left: 1rem;
+}
+
+th {
+  text-transform: uppercase;
+  color: $grey;
+}
+
+td {
+  cursor: pointer;
+}
+
+tr.selected {
+  background-color: $lightGrey;
+  border: none;
+}
+
+.name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  margin-right: 1rem;
+}
+
+.fallback-avatar {
+  color: $grey;
+  margin-right: 1rem;
+}

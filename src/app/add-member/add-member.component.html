@@ -1,0 +1,58 @@
+<form (ngSubmit)="onSubmit()" #newMemberForm="ngForm">
+  <h1 mat-dialog-title>Add Member</h1>
+  <div mat-dialog-content>
+    <mat-form-field class="w100">
+      <mat-label>Name</mat-label>
+      <input matInput
+             required
+             type="text"
+             [(ngModel)]="newMember.name"
+             name="name"
+      >
+    </mat-form-field>
+
+    <div class="flex">
+      <mat-form-field class="w50">
+        <mat-label>Company</mat-label>
+        <mat-select required [(value)]="newMember.team" name="team">
+          <mat-option
+            *ngFor="let team of teams" [value]="team._id">
+            {{team.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="w50">
+        <mat-label>Location</mat-label>
+        <mat-select required [(value)]="newMember.office">
+          <mat-option *ngFor="let office of offices" [value]="office._id" name="office">
+            {{office.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="flex">
+      <mat-form-field class="w50">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="newMember.email" name="email" #email="ngModel"
+               pattern="^[\w-\.]+@([\w-]+\.)+[\w-]$">
+        <mat-error *ngIf="!email.valid">Email format is not valid</mat-error>
+      </mat-form-field>
+      <mat-form-field class="w50">
+        <mat-label>Phone</mat-label>
+        <input matInput type="tel" [(ngModel)]="newMember.phone" name="phone" #phone="ngModel" pattern="^[+]?\d+">
+        <mat-error *ngIf="!phone.valid">Phone format is not valid</mat-error>
+      </mat-form-field>
+    </div>
+    <mat-form-field class="w100">
+      <mat-label>Start Date</mat-label>
+      <input matInput type="date" min="2020-01-01" [(ngModel)]="newMember.startDate" name="startDate">
+    </mat-form-field>
+
+  </div>
+  <div mat-dialog-actions class="action-buttons">
+    <button mat-button (click)="close()">Close</button>
+    <button type="submit" mat-flat-button color="primary" [disabled]="newMemberForm.invalid">Save</button>
+  </div>
+</form>
