@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-Make sure you have the latest version of Node.js installed. 
+You need to have Node.js and npm installed. 
 
 ## Run the project
 
